@@ -451,10 +451,10 @@ services:
       # Mount templates read-only; the startup command copies them into
       # the writable /etc/nginx/conf.d/ inside the container.  This avoids
       # "Permission denied" errors on Windows Docker bind mounts.
-      - ../data/nginx:/nginx-templates:ro
+      - ./data/nginx:/nginx-templates:ro
     # PRODUCTION: Add SSL certificate volumes for HTTPS support:
-    #   - ../data/certbot/conf:/etc/letsencrypt
-    #   - ../data/certbot/www:/var/www/certbot
+    #   - ./data/certbot/conf:/etc/letsencrypt
+    #   - ./data/certbot/www:/var/www/certbot
     logging:
       driver: json-file
       options:
@@ -538,8 +538,8 @@ services:
   #   image: certbot/certbot
   #   restart: unless-stopped
   #   volumes:
-  #     - ../data/certbot/conf:/etc/letsencrypt
-  #     - ../data/certbot/www:/var/www/certbot
+  #     - ./data/certbot/conf:/etc/letsencrypt
+  #     - ./data/certbot/www:/var/www/certbot
   #   logging:
   #     driver: json-file
   #     options:
